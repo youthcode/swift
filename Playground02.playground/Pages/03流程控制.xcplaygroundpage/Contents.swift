@@ -110,10 +110,60 @@ default:
     break
 }
 
+let count = 62
+switch count {
+case 0:
+    print("none")
+case 1..<5:
+    print("a few")
+case 12..<100:
+    print("several")
+case 100..<1000:
+    print("hundreds of")
+default:
+    print("many")
+}
 
+let point = (1, 1)
+switch point {
+case (0, 0):
+    print("the origin")
+case (_, 0):
+    print("on the x-axis")
+case (0, _):
+    print("on the y-axis")
+case (-2...2, -2...2):
+    print("inside the box")
+default:
+    print("outside of the box")
+}
 
+let point2 = (2, 0)
+switch point2 {
+case (let x, 0):
+    print("on the x-axis with an x value of \(x)")
+case (0, let y):
+    print("on the y-axis with a y value of \(y)")
+case let (x, y):
+    print("somewhere else at (\(x),\(y)")
+}
 
+let point3 = (1, -1)
+switch point3 {
+case let (x, y) where x == y:
+    print("on the line x == y")
+case let (x, y) where x == -y:
+    print("on the line x == -y")
+case let (x, y):
+    print("(\(x),\(y)) is just some arbitrary point")
+}
 
+var numbers = [10, 20, -10, -20, 30, -30]
+var sum = 0
+for num in numbers where num > 0 {
+    sum += num
+}
+print(sum)
 
 
 
