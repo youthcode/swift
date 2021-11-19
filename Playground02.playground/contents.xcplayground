@@ -3,5 +3,6 @@
     <pages>
         <page name='02数据类型'/>
         <page name='03流程控制'/>
+        <page name='04 函数'/>
     </pages>
 </playground>
