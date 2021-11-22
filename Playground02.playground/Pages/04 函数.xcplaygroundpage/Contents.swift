@@ -72,6 +72,91 @@ func sum3(_ numbers: Int...) -> Int {
 }
 sum3(10, 20, 30, 40)
 
+func swapValues(_ v1: inout Int, _ v2: inout Int) {
+    let tmp = v1
+    v1 = v2
+    v2 = tmp
+}
+var num1 = 10
+var num2 = 20
+swapValues(&num1, &num2)
+
+func swapValues2(_ v1: inout Int, _ v2: inout Int) {
+    (v1, v2) = (v2, v1)
+}
+
+func test() { } // () -> Void 或者 ()->()
+
+func sum3(a: Int, b: Int) -> Int {
+    a + b
+} // (Int, Int) -> Int
+
+// 定义变量
+var fn:(Int, Int)->Int = sum3
+fn(2, 5) // 5
+
+func difference(v1: Int, v2: Int) -> Int {
+    v1 - v2
+}
+
+func printResult(_ mathFn: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result: \(mathFn(a, b))")
+}
+
+printResult(sum3, 5, 2)
+printResult(difference, 5, 2)
+
+func next(_ input: Int) -> Int {
+    input + 1
+}
+
+func previous(_ input: Int) -> Int {
+    input - 1
+}
+
+func forward(_ forward: Bool) -> (Int) -> Int {
+    forward ? next : previous
+}
+
+forward(true)(3)
+forward(false)(3)
+
+typealias Byte = Int8
+typealias Short = Int16
+typealias Long = Int64
+
+typealias Date = (year: Int, month: Int, day: Int)
+func test(_ date: Date) {
+    print(date.0)
+    print(date.year)
+}
+test((2011, 9, 10))
+
+typealias IntFn = (Int, Int) -> Int
+func difference2(v1: Int, v2: Int) -> Int {
+    v1 - v2
+}
+
+let fn2: IntFn = difference
+fn2(20, 10)
+
+func setFn(_ fn2: IntFn){}
+setFn(difference2)
+
+func getFn() -> IntFn { difference2 }
+
+func forward2(_ forward: Bool) -> (Int) -> Int {
+    func next(_ input: Int) -> Int {
+        input + 1
+    }
+    func previous(_ input: Int) -> Int {
+        input - 1
+    }
+    return forward ? next : previous
+}
+forward2(true)(3)
+forward2(false)(3)
+
 //: [Next](@next)
 
 
