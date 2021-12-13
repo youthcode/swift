@@ -5,5 +5,7 @@
         <page name='03流程控制'/>
         <page name='04 函数'/>
         <page name='05枚举'/>
+        <page name='07可选项'/>
+        <page name='08-结构体与类01'/>
     </pages>
 </playground>
